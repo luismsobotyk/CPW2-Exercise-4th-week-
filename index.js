@@ -1,7 +1,7 @@
 /**
  * Aplica a cor #BECCC3 no background do body da página
  */
-function background(){
+ function background(){
 
     /**
      * Tarefa/Issue  1
@@ -9,7 +9,7 @@ function background(){
      * Desenvolva uma função capaz de trocar a cor do fundo da página, ou seja,
      * alterar o background do body para a cor #BECCC3.
      */
-
+    document.body.style.backgroundColor = "#BECCC3";
 }
 
 /**
@@ -25,6 +25,10 @@ function show(){
       * Recupera os valores dos campos de texto cujo o id='fname' e id='lname' e apresente o nome
       * e o sobrenome de uma pessoa (separado por um espaço) na div id='result'
       */
+
+    let firstName= document.getElementById('fname').value;
+    let lastName= document.getElementById('lname').value;
+    document.getElementById('result').innerHTML= firstName+" "+lastName;
 }
 
 /**
@@ -51,7 +55,21 @@ function search(){
      *
      * Além disso, a função removeAllChildren abaixo também pode ser útil para o desenvolvimento da solução
      */
+    let name= document.getElementById("name").value;
+    if(name==""){
+        return "";
+    }
 
+    let element= document.getElementById("search");
+    const size= name.length;
+
+    element.innerHTML= "";
+
+    for(i in data){
+        if(name.toUpperCase()==data[i].name.substr(0, size).toUpperCase()){
+            element.innerHTML+= "<div>"+data[i].name+"</div>";
+        }
+    }
 }
 
 /**
